@@ -1,0 +1,37 @@
+/* Distant light sources sit beneath the drifting density fields. */
+.volumetric-fog{position:absolute;inset:0;width:100%;height:100%;opacity:.95;pointer-events:none;mask-image:linear-gradient(0deg,transparent 0%,#000 10%,#000 86%,transparent 100%)}
+.candle-scene{position:absolute;inset:0;mask-image:linear-gradient(90deg,transparent 30%,#000 38%,#000 53%,transparent 64%,transparent 76%,#000 88%);opacity:.7}
+.distant-candle{position:absolute;left:var(--cx);bottom:var(--cy);height:var(--height);width:7px;filter:blur(.55px);opacity:.62;transform:translate3d(calc(var(--depth-x) * .25),calc(var(--depth-y) * .25),0)}
+.distant-candle.depth-1{filter:blur(1.1px);opacity:.4;scale:.75}.distant-candle.depth-2{filter:blur(1.65px);opacity:.3;scale:.55}
+.wax{position:absolute;inset:0;border-radius:45% 45% 2px 2px / 3px 3px 1px 1px;background:linear-gradient(90deg,#100807,#352015 20%,#715035 43%,#483021 62%,#160b09 100%);box-shadow:inset 1px 0 1px #a975381a,0 8px 8px #0008}
+.wax:before{content:'';position:absolute;inset:0 0 auto;height:4px;border-radius:50%;background:radial-gradient(ellipse,#e6b66c 0%,#9d642c 30%,#342015 70%);box-shadow:0 0 5px #ffb44738}
+.wax b{position:absolute;top:3px;left:2px;width:2px;height:24%;border-radius:0 0 3px 3px;background:linear-gradient(#9f7648,#60422700);opacity:.55}
+.wick{position:absolute;top:-3px;left:3px;height:5px;width:1px;background:#2b1708}
+.distant-flame{position:absolute;bottom:calc(100% + 1px);left:1px;width:5px;height:13px;border-radius:55% 45% 45% 45% / 80% 75% 25% 25%;background:radial-gradient(ellipse at 50% 75%,#fff9d8 0%,#ffe6a0 23%,#ec9f31 52%,#d5490d88 76%,transparent 90%);box-shadow:0 0 5px #f9ae4c75;transform-origin:50% 100%;animation:distant-flicker var(--flicker) ease-in-out var(--offset) infinite alternate}
+.candle-halo{position:absolute;left:50%;bottom:calc(100% - 32px);width:96px;height:90px;transform:translateX(-50%);background:radial-gradient(ellipse,#e6a14c19 0%,#d7661910 30%,transparent 68%);animation:light-flutter var(--flicker) ease-in-out var(--offset) infinite alternate}
+.distant-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 48% 78%,#e7872310 0%,transparent 28%),radial-gradient(ellipse at 91% 78%,#bb47140b,transparent 19%);animation:light-flutter 5.7s ease-in-out infinite alternate}
+.ground-haze{position:absolute;inset:65% -10% -5%;background:radial-gradient(ellipse at 60% 75%,#120b10a1,transparent 68%);pointer-events:none;animation:ground-drift 22s ease-in-out infinite alternate}
+.embers{opacity:.5}.embers i{box-shadow:0 0 4px #fd542f}.arrow-aura{opacity:.5}
+@keyframes distant-flicker{0%,100%{transform:rotate(-4deg) scale(.9,1);opacity:.82}21%{transform:rotate(3deg) scale(1,.92);opacity:.95}47%{transform:rotate(-1deg) scale(.85,1.06);opacity:.78}73%{transform:rotate(2deg) scale(.94,.96);opacity:1}}
+@keyframes light-flutter{0%,100%{opacity:.55}27%{opacity:.72}61%{opacity:.48}83%{opacity:.8}}
+@keyframes ground-drift{from{transform:translateX(-4%) scale(1)}to{transform:translateX(5%) scale(1.12)}}
+@media(max-width:760px){.volumetric-fog{mask-image:linear-gradient(0deg,transparent,#000 12%,#000 54%,transparent 78%);opacity:.9}.candle-scene{mask-image:linear-gradient(90deg,#000,transparent 64%,#000);inset:25% 0 0}.distant-candle{left:calc((var(--cx) - 35%) * 1.6);bottom:calc(var(--cy) - 6%)}.distant-candle:nth-child(n+9){display:none}.ground-haze{inset:65% -10% -5%}}
+@media(prefers-reduced-motion:reduce){.distant-candle{transform:none}.ground-haze,.distant-flame,.candle-halo,.distant-glow{animation:none!important}}
+/* Revisión: círculo ritual lateral y nubes reconocibles en movimiento. */
+@media(min-width:761px){.hero{min-height:870px}.hero-inner{padding-top:100px}}
+.ritual-scene{position:absolute;left:8%;bottom:5.5%;width:350px;height:170px;opacity:.94;isolation:isolate}
+.ritual-floor{position:absolute;width:100%;height:100%;left:0;top:0;transform:perspective(550px) rotateX(63deg);transform-origin:50% 60%;color:#bc6a42;filter:drop-shadow(0 0 5px #d43d283d)}
+.ritual-floor svg{width:100%;height:100%;overflow:visible}
+.ritual-scene .distant-candle{filter:blur(.25px);opacity:.9;width:8px}
+.ritual-scene .depth-1{filter:blur(.4px);opacity:.8;scale:.86}.ritual-scene .depth-2{filter:blur(.6px);opacity:.72;scale:.75}
+.ritual-scene .distant-flame{height:15px;width:6px}.ritual-scene .candle-halo{width:88px;height:100px}
+.volumetric-fog{opacity:1;mask-image:linear-gradient(0deg,transparent 0%,#000 7%,#000 92%,transparent 100%)}
+.ground-haze{background:radial-gradient(ellipse at 60% 75%,#120b1040,transparent 68%);opacity:.45}
+.embers{opacity:.18}.distant-glow{background:radial-gradient(ellipse at 21% 87%,#c1742a25,transparent 24%)}
+@media(max-width:760px){.hero{min-height:1130px}.hero-inner{padding-bottom:440px}.ritual-scene{left:0;bottom:5%;width:245px;height:140px}.volumetric-fog{mask-image:linear-gradient(0deg,transparent,#000 8%,#000 50%,transparent 78%)}.ritual-scene .distant-candle{left:var(--cx);bottom:var(--cy)}.ritual-scene .distant-candle:nth-child(n+9){display:block}}
+/* Shared wind bends the flames at their fixed wicks; local flicker remains. */
+.ritual-scene .distant-flame{rotate:var(--wind-angle,0deg);scale:var(--wind-stretch,1) 1;transform-origin:50% 100%;}
+.ritual-scene .depth-1 .distant-flame{rotate:calc(var(--wind-angle,0deg) * .88)}
+.ritual-scene .depth-2 .distant-flame{rotate:calc(var(--wind-angle,0deg) * 1.08)}
+.ritual-scene .candle-halo{translate:var(--wind-push,0px) 0}
+@media(prefers-reduced-motion:reduce){.ritual-scene .distant-flame{rotate:0deg;scale:1}.ritual-scene .candle-halo{translate:0 0}}

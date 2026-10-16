@@ -1,0 +1,34 @@
+/* A quieter companion to the cinematic home: illuminated seals and low mist. */
+.page-view{position:relative;isolation:isolate;background:radial-gradient(ellipse at 17% 43%,#420e182e,transparent 52%),#0a0708;min-height:calc(100svh - 180px)}
+.page-view .content-section{position:relative;z-index:1;min-height:calc(100svh - 215px);padding-top:clamp(55px,7vw,120px);padding-bottom:65px}
+.page-view .interior-atmosphere{z-index:0;opacity:.52;pointer-events:none;mask-image:linear-gradient(180deg,transparent 12%,#000 57%,#000 94%,transparent);overflow:hidden}
+.interior-atmosphere .volumetric-fog{opacity:.8;mask-image:linear-gradient(90deg,#000 5%,#0008 40%,#0003 75%,#0006)}
+.interior-light{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 45%,#b515232d,transparent 45%),radial-gradient(ellipse at 85% 90%,#8b261119,transparent 45%);animation:interior-glow 9s ease-in-out infinite alternate}
+.page-view .service-section{grid-template-columns:1fr 1.15fr;gap:clamp(35px,6vw,100px);align-items:center}
+.page-view .symbol-panel{position:relative;min-height:450px;background:none;gap:18px;isolation:isolate}
+.page-view .symbol-panel:before,.page-view .symbol-panel:after{display:none}
+.scene-seal{position:relative;width:min(100%,440px);aspect-ratio:1;display:grid;place-items:center;isolation:isolate}
+.seal-light{position:absolute;inset:-18%;background:radial-gradient(ellipse,#df363224 0%,#69121e33 25%,#2f0a1420 48%,transparent 69%);animation:seal-breathe 7s ease-in-out infinite alternate;z-index:-1}
+.seal-orbit{position:absolute;width:100%;height:100%;stroke:#bd8948;stroke-width:.7;opacity:.67;animation:seal-orbit 100s linear infinite;filter:drop-shadow(0 0 6px #df492c2d)}
+.seal-orbit>circle:first-child{stroke:#9b4a37;opacity:.7}.seal-orbit>circle:nth-child(3){opacity:.35}
+.seal-inner{display:grid;place-items:center;width:68%;height:68%;border-radius:50%;background:radial-gradient(ellipse at 30% 25%,#78272224,#16090d8c 65%,#09060822);border:1px solid #c48e4233;box-shadow:inset 0 0 40px #aa3a1510,0 0 35px #88131a14;animation:seal-hover 8s ease-in-out infinite}
+.page-view .symbol-panel .seal-inner .service-symbol{width:84%;height:84%;color:#e3b66b;filter:drop-shadow(0 0 5px #c9873b44) drop-shadow(0 0 23px #d1532824)}
+.page-view .symbol-panel>span{font-size:10px;letter-spacing:4px;color:#b1966c;margin-top:-8px}
+.seal-sparks{position:absolute;inset:0;pointer-events:none}.seal-sparks i{position:absolute;bottom:10%;left:var(--spark-x);width:2px;height:2px;border-radius:50%;background:#e4c18a;box-shadow:0 0 7px #d69a54;animation:seal-spark 10s ease-in-out var(--spark-delay) infinite;opacity:0}
+.page-view .service-copy:before{height:110px;background:linear-gradient(#d4ac5d7a,transparent)}
+.page-view .service-copy .text-link{padding:13px 22px;border:1px solid #b7944f70;border-radius:30px;background:linear-gradient(120deg,#cca25412,#6c242110);color:#edcd94;gap:25px;margin-top:22px;box-shadow:inset 0 1px 0 #d8bc7912;transition:border-color .25s,background .25s,box-shadow .25s}
+.page-view .service-copy .text-link:hover{border-color:#e7bf77;background:#c1903320;box-shadow:0 0 25px #b05a2320}
+.page-view .reverse .symbol-panel{grid-column:2}.page-view .reverse .service-copy{grid-column:1}
+.page-proteccion .seal-light{background:radial-gradient(ellipse,#c3923830 0%,#6d29202a 30%,transparent 67%)}
+.page-preguntas .interior-atmosphere,.page-contacto .interior-atmosphere{opacity:.23}
+.page-view .faq-section,.page-view .contact-section,.page-view .about-section{padding-top:clamp(60px,7vw,110px)}
+.mystic-ending{background:linear-gradient(#0a0708,#090708);position:relative}.mystic-ending:before{content:'';position:absolute;top:0;width:40%;height:60px;background:radial-gradient(ellipse,#8c251919,transparent 68%);pointer-events:none}
+@keyframes seal-orbit{to{transform:rotate(360deg)}}
+@keyframes seal-breathe{from{opacity:.65;transform:scale(.93)}to{opacity:1;transform:scale(1.06)}}
+@keyframes seal-hover{0%,100%{transform:translateY(3px)}50%{transform:translateY(-4px)}}
+@keyframes interior-glow{from{opacity:.5}to{opacity:.95}}
+@keyframes seal-spark{0%,100%{opacity:0;transform:translateY(0)}30%{opacity:.45}75%{opacity:.15}95%{transform:translateY(-140px)}}
+@media(min-width:2200px){.scene-seal{width:560px}.page-view .symbol-panel{min-height:600px}.page-view .content-section{min-height:calc(100svh - 300px)}.page-view .symbol-panel>span{font-size:14px}.page-view .service-copy .text-link{padding:17px 30px}}
+@media(max-width:1000px){.scene-seal{width:330px}.page-view .symbol-panel{min-height:360px}.page-view .service-section{gap:35px;grid-template-columns:.85fr 1.15fr}}
+@media(max-width:760px){.page-view .content-section{padding-top:40px;padding-bottom:55px;min-height:0}.page-view .service-section{grid-template-columns:1fr;gap:36px}.page-view .symbol-panel{min-height:260px;gap:0}.scene-seal{width:265px}.page-view .symbol-panel>span{font-size:8px;letter-spacing:3px;margin-top:-5px}.page-view .reverse .symbol-panel,.page-view .reverse .service-copy{grid-column:auto}.page-view .interior-atmosphere{opacity:.45;mask-image:linear-gradient(180deg,#0003,transparent 35%,#000 65%,transparent)}.page-view .service-copy .text-link{font-size:11px;gap:15px;padding:12px 17px;max-width:100%}.page-view .faq-section,.page-view .contact-section,.page-view .about-section{padding-top:45px}.seal-sparks i:nth-child(n+4){display:none}}
+@media(prefers-reduced-motion:reduce){.seal-orbit,.seal-light,.seal-inner,.seal-sparks i,.interior-light{animation:none!important}.seal-sparks{display:none}}
